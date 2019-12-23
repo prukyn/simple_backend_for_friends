@@ -7,7 +7,8 @@
 - Python 3
 - pip
 
-###Встановлення
+### Встановлення
+
 - Якщо в Вас Windows, то перед цим встановіть [Python 3](https://www.python.org/downloads/windows/)
 - При встановлення натисніть **Add to PATH**
 - Далі завантажте [pip](https://bootstrap.pypa.io/get-pip.py)

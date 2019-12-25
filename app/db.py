@@ -12,6 +12,7 @@ def get_db():
             password=PASSWORD,
             host=HOST,
             port=PORT,
+            connect_timeout=20
         )
     return g.db
 

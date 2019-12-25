@@ -25,7 +25,7 @@
 
 ```
 cd simple_backend_for_friends
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Налаштування 

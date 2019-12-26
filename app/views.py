@@ -13,47 +13,24 @@ bp = Blueprint("routes", __name__)
 @bp.route('/')
 @cross_origin()
 def hello():
-    db = get_db()
-    cur = db.cursor()
-    cur.execute(QUERY1)
-    persons = []
-    for header, item in cur.fetchall():
-        persons.append(item)
-    print(persons)
-    return 'good'
+    return "Hello, Newcomers"
 
-@bp.route('/query1', methods=['GET'])
-@cross_origin()
-def query1():
+@bp.route('/query/<int:query_id>')
+def query(query_id):
     db = get_db()
     cur = db.cursor()
-    cur.execute(QUERY1)
-    result = transform_to_json(HEADERS1, cur.fetchall())
-    return jsonify(result)
+    if query_id == 1:
+        cur.execute(QUERY1)
+        headers = HEADERS1
+    elif query_id == 2:
+        cur.execute(QUERY2)
+        headers = HEADERS2
+    elif query_id == 3:
+        cur.execute(QUERY3)
+        headers = HEADERS3
+    elif query_id == 4:
+        cur.execute(QUERY4)
+        headers = HEADERS4
 
-@bp.route('/query2', methods=['GET'])
-@cross_origin()
-def query2():
-    db = get_db()
-    cur = db.cursor()
-    cur.execute(QUERY2)
-    result = transform_to_json(HEADERS2, cur.fetchall())
-    return jsonify(result)
-
-@bp.route('/query3', methods=['GET'])
-@cross_origin()
-def query3():
-    db = get_db()
-    cur = db.cursor()
-    cur.execute(QUERY3)
-    result = transform_to_json(HEADERS3, cur.fetchall())
-    return jsonify(result)
-
-@bp.route('/query4', methods=['GET'])
-@cross_origin()
-def query4():
-    db = get_db()
-    cur = db.cursor()
-    cur.execute(QUERY4)
-    result = transform_to_json(HEADERS4, cur.fetchall())
+    result = transform_to_json(headers, cur.fetchall())
     return jsonify(result)

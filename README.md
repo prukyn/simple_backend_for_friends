@@ -49,18 +49,22 @@ pip install -r requirements.txt
 Як результат повернеться json в вигляді масиву з обʼєктами
 наступного вигляду:
 ```
-[
-  {
-    "BirthDate": "29-6-1996", 
-    "DiplomaName": "REMEDYREPACK INC.", 
-    "GroupCode": "P9sonV", 
-    "Mark": "A", 
-    "Name": "Mottram", 
-    "Patronymic": "Wride", 
-    "SpecialityName": "nm", 
-    "Surname": "Ailyn"
-  },
-...
-]
+{
+  "data" : [
+    {
+        "BirthDate": "29-6-1996", 
+        "DiplomaName": "REMEDYREPACK INC.", 
+        "GroupCode": "P9sonV", 
+        "Mark": "A", 
+        "Name": "Mottram", 
+        "Patronymic": "Wride", 
+        "SpecialityName": "nm", 
+        "Surname": "Ailyn"
+    }, ...],
+  "headers": [
+    "Cafedra",
+    "Sum"
+  ]
+}
 ```
 де ключі - наші HEADERS-и, а значення - результати запитів
